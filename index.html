@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="checkbox" id="ctrl" />
+
+    <h1>
+      <span>Bengiz</span>
+    </h1>
+    <label for="ctrl" class="ctrl"></label>
+
+    <p>
+      <span class="spanish"
+        >20 yılı aşkın süredir Bengiz markası altında çeşitli stiller ile üstün
+        kaliteli üniformalar, aşçı ceketleri ve önlükler hazırlıyoruz. Bu güne
+        kadar müşterilerimiz için binlerce tek tip ve özel tasarım oluşturduk.
+        Gururluyuz...
+      </span>
+      <span class="ingles"
+        >For over 20 years, we have been preparing high quality uniforms, cook
+        jackets and aprons with various styles under the brand Bengiz. To date,
+        we have created thousands of uniforms and custom designs for our
+        customers. We are proud ...</span
+      >
+    </p>
+    <br />
+    <span> <img class="responsive" src="./bengiz.jpg"/></span>
+    <style>
+      .responsive {
+        width: 100%;
+        height: auto;
+      }
+      #ctrl:checked ~ * .spanish,
+      .ingles {
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        pointer-events: none;
+      }
+
+      #ctrl:checked ~ * .ingles {
+        display: block;
+        position: static;
+        opacity: 1;
+        width: 100%;
+        pointer-events: initial;
+      }
+
+      #ctrl {
+        position: absolute;
+        opacity: 0;
+      }
+
+      [for='ctrl']::before {
+        content: 'ENG';
+      }
+
+      #ctrl:checked ~ [for='ctrl']::before {
+        content: 'TR';
+      }
+
+      /*ESTILOS MERAMENTE DCORATIVOS*/
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        text-align: center;
+        margin: 0;
+        padding: 1em 2vw;
+        font-family: Verdana, Geneva, sans-serif;
+        color: rgba(0, 0, 0, 0.7);
+      }
+
+      h1 {
+        font-family: 'georgia', serif;
+        font-style: italic;
+        font-size: 5vw;
+        color: rgba(0, 100, 0, 0.5);
+        text-transform: capitalize;
+      }
+
+      [for='ctrl'] {
+        display: inline-block;
+        padding: 1em 2em;
+        background-color: yellowgreen;
+        box-shadow: 0 2px 0 green;
+        color: #ffff00;
+        cursor: pointer;
+        border-radius: 3px;
+        margin: 5vh;
+      }
+
+      #ctrl:checked ~ [for='ctrl'] {
+        background-color: yellow;
+        color: green;
+      }
+    </style>
+  </body>
+</html>
